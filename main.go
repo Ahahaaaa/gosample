@@ -23,6 +23,7 @@ func main(){
 }
 func handler(w http.ResponseWriter,r*http.Request){
 	fmt.Fprintf(w,"<h1>httpserverへようこそ</h1>\n")
+	fmt.Fprintf(w,"<h2>httpサーバー内です<h2>")
 	if err:=r.ParseForm();err!=nil{
 		log.Print(err)
 	}
