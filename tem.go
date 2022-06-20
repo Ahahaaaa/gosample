@@ -1,9 +1,10 @@
 package main
- 
+
 import (
-    "fmt"
-    "html/template"
-    "net/http"
+	"fmt"
+	"html/template"
+	"net/http"
+	"os"
 )
  
 func htmlHandler(w http.ResponseWriter, r *http.Request) {
@@ -21,7 +22,13 @@ func htmlHandler(w http.ResponseWriter, r *http.Request) {
     }
 }
  
+
 func main() {
+    port:=os.Getenv("PORT")
+    if  port==""{
+    } else {
+        port = "8080"
+    }
     http.HandleFunc("/", htmlHandler)
-    http.ListenAndServe(":5000", nil)
+    http.ListenAndServe(":"+port, nil)
 }
